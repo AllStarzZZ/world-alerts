@@ -1,4 +1,4 @@
-namespace WorldAlerts.Application.Abstractions.Repositories;
+namespace WorldAlerts.Application.Repositories;
 
 using WorldAlerts.Domain.Entities;
 

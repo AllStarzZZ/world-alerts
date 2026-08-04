@@ -2,8 +2,8 @@ namespace WorldAlerts.Infrastructure.Extensions;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using WorldAlerts.Application.Abstractions.Repositories;
 using WorldAlerts.Application.Notification;
+using WorldAlerts.Application.Repositories;
 using WorldAlerts.Infrastructure.Data;
 using WorldAlerts.Infrastructure.Notification;
 using WorldAlerts.Infrastructure.Repositories;
@@ -25,7 +25,8 @@ public static class ServiceCollectionExtensions
             options.UseSqlite(connectionString));
 
         // Register repositories
-        services.AddScoped<IWorldEventRepository, WorldEventRepository>();
+        services.AddScoped<IAlertRuleRepository, AlertRuleRepository>();
+        services.AddScoped<INotificationDeliveryRepository, NotificationDeliveryRepository>();
 
         // Register notification channels
         services.AddScoped<INotificationChannel, EmailNotificationChannel>();

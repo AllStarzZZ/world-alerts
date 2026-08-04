@@ -225,3 +225,6 @@ dmypy.json
 
 
 false
+*.db
+*.db-shm
+*.db-wal

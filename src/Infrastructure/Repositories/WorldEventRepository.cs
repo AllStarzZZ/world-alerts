@@ -1,7 +1,7 @@
 namespace WorldAlerts.Infrastructure.Repositories;
 
 using Microsoft.EntityFrameworkCore;
-using WorldAlerts.Application.Abstractions.Repositories;
+using WorldAlerts.Application.Repositories;
 using WorldAlerts.Domain.Entities;
 using WorldAlerts.Infrastructure.Data;
 

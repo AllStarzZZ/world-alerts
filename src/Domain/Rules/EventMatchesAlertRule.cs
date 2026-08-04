@@ -1,7 +1,6 @@
 namespace WorldAlerts.Domain.Rules;
 
 using WorldAlerts.Domain.Entities;
-using WorldAlerts.Domain.Enums;
 
 /// <summary>
 /// Business rule that determines if a world event matches the conditions of an alert rule.
@@ -18,7 +17,7 @@ public class EventMatchesAlertRule
     /// <param name="worldEvent">The world event to evaluate against the rule.</param>
     /// <returns>True if the rule matches the event, false otherwise.</returns>
     /// <exception cref="ArgumentNullException">Thrown when alertRule or worldEvent is null.</exception>
-        public static bool Matches(AlertRule alertRule, WorldEvent worldEvent)
+    public static bool Matches(AlertRule alertRule, WorldEvent worldEvent)
     {
         ArgumentNullException.ThrowIfNull(alertRule);
         ArgumentNullException.ThrowIfNull(worldEvent);

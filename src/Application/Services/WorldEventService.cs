@@ -1,7 +1,7 @@
 namespace WorldAlerts.Application.Services;
 
-using WorldAlerts.Application.Abstractions.Repositories;
 using WorldAlerts.Application.DTOs;
+using WorldAlerts.Application.Repositories;
 using WorldAlerts.Domain.Entities;
 
 /// <summary>

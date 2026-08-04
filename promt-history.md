@@ -60,3 +60,9 @@ modify the api url for #CreateWorldEvent to look like this localhost/api/world-e
 also update the #design.md to follow this pattern in the rest controllers in the future
 
 I implemented notification channels: #EmailNotificationChannel, #SlackNotificationChannel and a dispatcher #INotificationDispatcher, write the DI registrations into the Infrastructure project
+
+Implement an evaluator service that decides whether the notification dispacher should dispatch to some channel or not. For evaluation use the implemented #EventMatchesAlertRule, for the sake of simplicity do not create a new repository layers (for AlertRules) rather use the #WorldAlertsDbContext as a repository now.
+
+update the #decision-log.md that we don't implement transactions and rollback, because the worst thing that could happen is that we dispatch the notification multiple times after we implement some retry logic upon failure and it is acceptable.
+
+

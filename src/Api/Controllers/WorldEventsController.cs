@@ -9,7 +9,9 @@ using WorldAlerts.Application.Services;
 /// </summary>
 [ApiController]
 [Route("api/world-events")]
-public class WorldEventsController(IWorldEventService worldEventService) : ControllerBase
+public class WorldEventsController(
+    IWorldEventService worldEventService,
+    INotificationEvaluatorService notificationEvaluator) : ControllerBase
 {
     /// <summary>
     /// Creates a new world event.
@@ -32,6 +34,9 @@ public class WorldEventsController(IWorldEventService worldEventService) : Contr
         try
         {
             var createdEvent = await worldEventService.CreateEventAsync(dto);
+
+            _ = notificationEvaluator.EvaluateAndDispatchAsync(createdEvent, HttpContext.RequestAborted);
+
             return CreatedAtAction(nameof(CreateWorldEvent), new { id = createdEvent.Id }, createdEvent);
         }
         catch (InvalidOperationException ex)

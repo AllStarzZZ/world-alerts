@@ -22,13 +22,8 @@ Default conflict-resolution order:
 - Do not assume that other systems currently depend on this solution.
 - Database schemas and migrations may be replaced during development when necessary.
 - Prefer simple and explicit implementations over production-oriented complexity.
-- After every prompt has been written, append the raw text of the prompt to this file: `docs/prompt-history.md` and use the following format:
-```
-
-[TimeStamp] [Text of the prompt]
------------------
-
-```
+- After every prompt has been written, append the raw text of the prompt to this file: `docs/prompt-history.md`.
+- Do not commit to git unless explicitly asked to do so.
 
 ## Technology
 - Use ASP.NET Core Web API.
