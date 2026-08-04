@@ -1,6 +1,7 @@
 namespace WorldAlerts.Domain.Entities;
 
 using WorldAlerts.Domain.Enums;
+using WorldAlerts.Domain.Rules;
 
 /// <summary>
 /// Represents the conditions under which a notification should be created.

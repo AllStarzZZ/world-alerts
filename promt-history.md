@@ -36,3 +36,12 @@ Create:
 EventCategory EventSeverity NotificationChannelType DeliveryStatus
 
 use long for internal ids where it is possible
+
+Implement the Matches(WorldEvent worldEvent) method which is a business rule for   .
+A rule matches when it is active and all configured filters match, the logical operator between the filters is 'OR':
+category; minimum severity; keyword in title or description; location.
+Keyword and location matching must be case-insensitive. Missing optional filters must not restrict matching.
+Keep the logic in the Domain layer and add TUnit tests for matching, non-matching, boundary, and null cases.
+
+merge the selected branches, it is enough if the title, description contains the keyword or the location matches
+
