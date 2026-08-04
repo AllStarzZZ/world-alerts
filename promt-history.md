@@ -52,3 +52,9 @@ create a repository 'WordEventRepository' which implement only create functional
 Do not use underscore in front of private variables and use primary constructor where it is possible, also update the #design.md file with these code style rules
 
 implement an application service that accepts a #WorldEvent from the api controller through an appropriate DTO class, validates if it's a new event then persists via the repository. Generate the dto, registrate the service into the DI container
+
+implement a controller that accepts a world event like object and stores it via #WorldEventService application service.
+
+modify the api url for #CreateWorldEvent to look like this localhost/api/world-events/add
+
+also update the #design.md to follow this pattern in the rest controllers in the future

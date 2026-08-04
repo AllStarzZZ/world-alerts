@@ -90,3 +90,33 @@ It contains:
 4. **Async/Await**: Use async methods with the `Async` suffix for I/O operations (database, HTTP calls, etc.).
 
 5. **Naming**: Follow PascalCase for public members and camelCase for private members and local variables.
+
+## API Endpoints
+
+### URL Pattern
+
+Controllers should follow this pattern for REST endpoints:
+
+- **Controller Route**: `api/resource-name` (kebab-case, plural form)
+- **Action Route**: Specific action suffix (e.g., `add`, `update`, `delete`)
+
+### Example
+
+```csharp
+[ApiController]
+[Route("api/world-events")]
+public class WorldEventsController(IWorldEventService service) : ControllerBase
+{
+    [HttpPost("add")]
+    public async Task<ActionResult> CreateWorldEvent([FromBody] CreateWorldEventDto dto) { }
+
+    [HttpPut("update/{id}")]
+    public async Task<ActionResult> UpdateWorldEvent(long id, [FromBody] UpdateWorldEventDto dto) { }
+
+    [HttpDelete("delete/{id}")]
+    public async Task<ActionResult> DeleteWorldEvent(long id) { }
+
+    [HttpGet("get/{id}")]
+    public async Task<ActionResult> GetWorldEvent(long id) { }
+}
+```
