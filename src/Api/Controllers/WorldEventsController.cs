@@ -35,7 +35,7 @@ public class WorldEventsController(
         {
             var createdEvent = await worldEventService.CreateEventAsync(dto);
 
-            _ = notificationEvaluator.EvaluateAndDispatchAsync(createdEvent, HttpContext.RequestAborted);
+            await notificationEvaluator.EvaluateAndDispatchAsync(createdEvent, HttpContext.RequestAborted);
 
             return CreatedAtAction(nameof(CreateWorldEvent), new { id = createdEvent.Id }, createdEvent);
         }

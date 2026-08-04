@@ -19,8 +19,8 @@ public class NotificationEvaluatorService(
     /// </summary>
     /// <param name="worldEvent">The world event to evaluate.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>The list of notification deliveries created and persisted.</returns>
-    public async Task<IEnumerable<NotificationDelivery>> EvaluateAndDispatchAsync(
+    /// <returns>A task representing the asynchronous operation.</returns>
+    public async Task EvaluateAndDispatchAsync(
         WorldEvent worldEvent,
         CancellationToken cancellationToken = default)
     {
@@ -81,8 +81,6 @@ public class NotificationEvaluatorService(
             deliveryRepository.AddRange(deliveries);
             await deliveryRepository.SaveChangesAsync(cancellationToken);
         }
-
-        return deliveries;
     }
 }
 

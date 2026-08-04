@@ -27,6 +27,7 @@ public static class ServiceCollectionExtensions
         // Register repositories
         services.AddScoped<IAlertRuleRepository, AlertRuleRepository>();
         services.AddScoped<INotificationDeliveryRepository, NotificationDeliveryRepository>();
+        services.AddScoped<IWorldEventRepository, WorldEventRepository>();
 
         // Register notification channels
         services.AddScoped<INotificationChannel, EmailNotificationChannel>();

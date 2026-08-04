@@ -12,6 +12,6 @@ public interface INotificationEvaluatorService
     /// </summary>
     /// <param name="worldEvent">The world event to evaluate.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>The list of notification deliveries created.</returns>
-    Task<IEnumerable<NotificationDelivery>> EvaluateAndDispatchAsync(WorldEvent worldEvent, CancellationToken cancellationToken = default);
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task EvaluateAndDispatchAsync(WorldEvent worldEvent, CancellationToken cancellationToken = default);
 }
