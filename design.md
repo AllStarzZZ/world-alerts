@@ -91,6 +91,20 @@ It contains:
 
 5. **Naming**: Follow PascalCase for public members and camelCase for private members and local variables.
 
+### Dependency Injection
+
+6. **Service Lifetimes**: Register all services with **Scoped** lifecycle unless otherwise specified.
+   ```csharp
+   // ✓ Correct - Scoped lifetime (default)
+   services.AddScoped<IRepository, Repository>();
+
+   // Only use Singleton for stateless utility services or when explicitly required
+   services.AddSingleton<ICacheService, CacheService>();
+
+   // Transient: only for stateful services requiring new instances per injection
+   services.AddTransient<ISomeService, SomeService>();
+   ```
+
 ## API Endpoints
 
 ### URL Pattern

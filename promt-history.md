@@ -58,3 +58,5 @@ implement a controller that accepts a world event like object and stores it via 
 modify the api url for #CreateWorldEvent to look like this localhost/api/world-events/add
 
 also update the #design.md to follow this pattern in the rest controllers in the future
+
+I implemented notification channels: #EmailNotificationChannel, #SlackNotificationChannel and a dispatcher #INotificationDispatcher, write the DI registrations into the Infrastructure project
