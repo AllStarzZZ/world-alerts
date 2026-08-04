@@ -16,10 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../src/Domain/WorldAlerts.Domain.csproj" />
-    <ProjectReference Include="../src/Application/WorldAlerts.Application.csproj" />
-    <ProjectReference Include="../src/Infrastructure/WorldAlerts.Infrastructure.csproj" />
-    <ProjectReference Include="../src/Api/WorldAlerts.Api.csproj" />
+    <ProjectReference Include="../../src/Domain/WorldAlerts.Domain.csproj" />
+    <ProjectReference Include="../../src/Application/WorldAlerts.Application.csproj" />
+    <ProjectReference Include="../../src/Infrastructure/WorldAlerts.Infrastructure.csproj" />
+    <ProjectReference Include="../../src/Api/WorldAlerts.Api.csproj" />
   </ItemGroup>
 
 </Project>
