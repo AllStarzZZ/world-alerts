@@ -1,0 +1,6 @@
+@world_alerts_HostAddress = http://localhost:5178
+
+GET {{world_alerts_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

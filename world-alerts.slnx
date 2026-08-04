@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/docs/">
+    <File Path="decision-log.md" />
+    <File Path="design.md" />
+    <File Path="plan.md" />
+    <File Path="promt-history.md" />
+  </Folder>
+  <Project Path="src/Api/WorldAlerts.Api.csproj" />
+  <Project Path="src/Application/WorldAlerts.Application.csproj" />
+  <Project Path="src/Domain/WorldAlerts.Domain.csproj" />
+  <Project Path="src/Infrastructure/WorldAlerts.Infrastructure.csproj" />
+  <Project Path="tests/WorldAlerts.Tests/WorldAlerts.Tests.csproj" />
+</Solution>
