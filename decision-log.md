@@ -51,3 +51,23 @@ No DTO wrapper layer will be created for admin endpoints. Domain entities will b
 Reason
 
 Authentication will be implemented to protect the admin endpoints. Since access is restricted to authenticated administrators, schema leaking is not a concern. Creating an additional DTO layer would add unnecessary complexity and maintenance overhead for the MVP. Should the API be opened to external consumers in the future, DTOs can be introduced at that time.
+
+## DEC-005: Simple hardcoded authorization for admin endpoints
+
+Context
+
+The AdminController provides access to sensitive administrative data including all events, alert rules, and delivery statuses. Some level of access control is needed to prevent unauthorized exposure of this information.
+
+Decision
+
+A `SimpleAuthorizationFilterAttribute` will be implemented that checks for a hardcoded admin key in the query string (`?adminKey=admin-key-12345`). This is the only authorization mechanism for admin endpoints.
+
+Reason
+
+This is a simple MVP-level authorization mechanism intended for demonstration and development purposes. It provides basic protection against casual unauthorized access without the complexity of implementing full authentication/authorization (e.g., JWT, OAuth, role-based access control).
+
+**Important:** This approach should be replaced with proper authentication and authorization before any production deployment. For production, implement:
+- ASP.NET Core Identity or similar authentication framework
+- Role-based authorization (RBAC)
+- Secure token-based authentication (Bearer tokens, JWT)
+- Principle of least privilege for admin access

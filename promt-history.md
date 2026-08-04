@@ -74,3 +74,5 @@ extend the repositories Get.*Async methods to accept a count and an order direct
 update the #decision-log.md, we won't create DTO wrapper layer for the admin page since we will have authentication which will protect against schema leaking
 
 update controller setting during startup to identify and ignore cycles during serialization
+
+generate a 'SimpleAuthorizationFilter' attribute to protect #AdminController from unauthorized users that checks if the user provides an identifier in the query strings. The filter should check against a hardcoded value

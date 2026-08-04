@@ -1,15 +1,18 @@
 namespace WorldAlerts.Api.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
+using WorldAlerts.Api.Filters;
 using WorldAlerts.Application.Repositories;
 using WorldAlerts.Domain.Enums;
 
 /// <summary>
 /// API controller for admin dashboard and monitoring endpoints.
 /// Exposes world events, alert rules, and notification delivery statuses.
+/// Protected by SimpleAuthorizationFilter which requires a valid admin key in the query string.
 /// </summary>
 [ApiController]
 [Route("api/admin")]
+[SimpleAuthorizationFilter]
 public class AdminController(
     IWorldEventRepository worldEventRepository,
     IAlertRuleRepository alertRuleRepository,
