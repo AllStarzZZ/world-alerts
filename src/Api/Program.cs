@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using WorldAlerts.Application.Extensions;
 using WorldAlerts.Infrastructure.Extensions;
 
@@ -5,7 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new()

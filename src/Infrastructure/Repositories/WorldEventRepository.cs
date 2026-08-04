@@ -3,6 +3,7 @@ namespace WorldAlerts.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using WorldAlerts.Application.Repositories;
 using WorldAlerts.Domain.Entities;
+using WorldAlerts.Domain.Enums;
 using WorldAlerts.Infrastructure.Data;
 
 /// <summary>
@@ -38,6 +39,39 @@ public class WorldEventRepository(WorldAlertsDbContext dbContext) : IWorldEventR
         ArgumentNullException.ThrowIfNull(dbContext);
 
         return await dbContext.WorldEvents.AnyAsync(e => e.ExternalId == externalId);
+    }
+
+    /// <summary>
+    /// Retrieves all world events from the database.
+    /// </summary>
+    /// <returns>Collection of all world events.</returns>
+    public async Task<IEnumerable<WorldEvent>> GetAllAsync()
+    {
+        ArgumentNullException.ThrowIfNull(dbContext);
+
+        return await dbContext.WorldEvents.ToListAsync();
+    }
+
+    /// <summary>
+    /// Retrieves world events from the database with optional pagination and sorting.
+    /// </summary>
+    /// <param name="count">The maximum number of events to return. If null or 0, returns all events.</param>
+    /// <param name="sortDirection">The sort direction for the results. Default is Descending.</param>
+    /// <returns>Collection of world events ordered by ID.</returns>
+    public async Task<IEnumerable<WorldEvent>> GetAllAsync(int? count, SortDirection sortDirection = SortDirection.Descending)
+    {
+        ArgumentNullException.ThrowIfNull(dbContext);
+
+        IQueryable<WorldEvent> query = sortDirection == SortDirection.Descending
+            ? dbContext.WorldEvents.OrderByDescending(e => e.Id)
+            : dbContext.WorldEvents.OrderBy(e => e.Id);
+
+        if (count.HasValue && count > 0)
+        {
+            query = query.Take(count.Value);
+        }
+
+        return await query.ToListAsync();
     }
 }
 

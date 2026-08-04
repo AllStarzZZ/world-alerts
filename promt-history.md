@@ -65,4 +65,12 @@ Implement an evaluator service that decides whether the notification dispacher s
 
 update the #decision-log.md that we don't implement transactions and rollback, because the worst thing that could happen is that we dispatch the notification multiple times after we implement some retry logic upon failure and it is acceptable.
 
+prepare a controller and an endpoint for the admin view according to the sixth point of the mvp in plan.md
 
+modify #GetDashboardSummary and return only the top 20 entities ordered by id desc
+
+extend the repositories Get.*Async methods to accept a count and an order direction then update the #GetDashboardSummary
+
+update the #decision-log.md, we won't create DTO wrapper layer for the admin page since we will have authentication which will protect against schema leaking
+
+update controller setting during startup to identify and ignore cycles during serialization
