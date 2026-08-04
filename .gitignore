@@ -155,9 +155,6 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
-# VS Code extensions
-extensions/
-
 # macOS
 .DS_Store
 .AppleDouble
