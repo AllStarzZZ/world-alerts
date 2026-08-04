@@ -1,3 +1,5 @@
+using WorldAlerts.Infrastructure.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +13,11 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
     });
 });
+
+// Add Infrastructure services
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddInfrastructureServices(connectionString);
 
 var app = builder.Build();
 
