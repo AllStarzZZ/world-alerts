@@ -45,3 +45,10 @@ Keep the logic in the Domain layer and add TUnit tests for matching, non-matchin
 
 merge the selected branches, it is enough if the title, description contains the keyword or the location matches
 
+make the function static and remove the Matches method from #AlertRule
+
+create a repository 'WordEventRepository' which implement only create functionality, use #WorldAlertsDbContext via DI and also create a service collection extension for the repository
+
+Do not use underscore in front of private variables and use primary constructor where it is possible, also update the #design.md file with these code style rules
+
+implement an application service that accepts a #WorldEvent from the api controller through an appropriate DTO class, validates if it's a new event then persists via the repository. Generate the dto, registrate the service into the DI container

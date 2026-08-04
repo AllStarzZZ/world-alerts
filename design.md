@@ -66,3 +66,27 @@ It contains:
 - creation time;
 - optional sent time;
 - optional failure reason.
+
+## Code Style Guidelines
+
+### C# Conventions
+
+1. **Primary Constructors**: Use primary constructors for dependency injection and field initialization.
+   ```csharp
+   public class MyService(IRepository repository) { }
+   ```
+
+2. **Private Variables**: Do NOT use underscore prefix for private fields and variables. Use camelCase directly.
+   ```csharp
+   // ✓ Correct
+   private string value;
+
+   // ✗ Incorrect
+   private string _value;
+   ```
+
+3. **Constructor Validation**: Validate constructor parameters using `ArgumentNullException.ThrowIfNull()` within the method body.
+
+4. **Async/Await**: Use async methods with the `Async` suffix for I/O operations (database, HTTP calls, etc.).
+
+5. **Naming**: Follow PascalCase for public members and camelCase for private members and local variables.

@@ -1,3 +1,4 @@
+using WorldAlerts.Application.Extensions;
 using WorldAlerts.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,9 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
     });
 });
+
+// Add Application services
+builder.Services.AddApplicationServices();
 
 // Add Infrastructure services
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
