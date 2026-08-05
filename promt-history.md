@@ -76,3 +76,5 @@ update the #decision-log.md, we won't create DTO wrapper layer for the admin pag
 update controller setting during startup to identify and ignore cycles during serialization
 
 generate a 'SimpleAuthorizationFilter' attribute to protect #AdminController from unauthorized users that checks if the user provides an identifier in the query strings. The filter should check against a hardcoded value
+
+in #Program.cs implement a light weight guard that checks if the database is exists and creates and applies the migrations if not

@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 using WorldAlerts.Application.Extensions;
+using WorldAlerts.Infrastructure.Data;
 using WorldAlerts.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +31,13 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddInfrastructureServices(connectionString);
 
 var app = builder.Build();
+
+// Lightweight database initialization guard
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<WorldAlertsDbContext>();
+    await dbContext.Database.MigrateAsync();
+}
 
 // Configure the HTTP request pipeline.
 

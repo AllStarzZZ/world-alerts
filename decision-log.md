@@ -60,14 +60,8 @@ The AdminController provides access to sensitive administrative data including a
 
 Decision
 
-A `SimpleAuthorizationFilterAttribute` will be implemented that checks for a hardcoded admin key in the query string (`?adminKey=admin-key-12345`). This is the only authorization mechanism for admin endpoints.
+A `SimpleAuthorizationFilterAttribute` will be implemented that checks for a hardcoded admin key in the query string (`?adminKey=admin`). This is the only authorization mechanism for admin endpoints.
 
 Reason
 
 This is a simple MVP-level authorization mechanism intended for demonstration and development purposes. It provides basic protection against casual unauthorized access without the complexity of implementing full authentication/authorization (e.g., JWT, OAuth, role-based access control).
-
-**Important:** This approach should be replaced with proper authentication and authorization before any production deployment. For production, implement:
-- ASP.NET Core Identity or similar authentication framework
-- Role-based authorization (RBAC)
-- Secure token-based authentication (Bearer tokens, JWT)
-- Principle of least privilege for admin access
