@@ -78,3 +78,13 @@ update controller setting during startup to identify and ignore cycles during se
 generate a 'SimpleAuthorizationFilter' attribute to protect #AdminController from unauthorized users that checks if the user provides an identifier in the query strings. The filter should check against a hardcoded value
 
 in #Program.cs implement a light weight guard that checks if the database is exists and creates and applies the migrations if not
+
+take the whole solution and review how well it meets the criteria which is: "We want users to be able to set up alerts so they get notified when something important happens in the world — like breaking news, market movements, natural disasters, that kind of thing. Should work for both email and Slack. Make it flexible enough that we can add more channels later. We need an admin view too."
+
+I think we should provide an endpoint where the user can upload their own #AlertRule. Implement the controller, the application service and the corresponding repository
+
+in #AlertRuleService populate the destination value also since the user should be able to provide that information. Align the DTO class as well
+
+return only the ID in #CreateRuleAsync and do not send the whole object back to the user
+
+#AlertRuleService still returns the whole objec instead of just the id

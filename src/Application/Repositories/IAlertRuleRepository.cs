@@ -27,4 +27,11 @@ public interface IAlertRuleRepository
     /// <param name="sortDirection">The sort direction for the results. Default is Descending.</param>
     /// <returns>Collection of alert rules ordered by ID.</returns>
     Task<IEnumerable<AlertRule>> GetAllAsync(int? count, SortDirection sortDirection = SortDirection.Descending);
+
+    /// <summary>
+    /// Creates a new alert rule in the database.
+    /// </summary>
+    /// <param name="alertRule">The alert rule to create.</param>
+    /// <returns>The created alert rule with the assigned database ID.</returns>
+    Task<AlertRule> CreateAsync(AlertRule alertRule);
 }

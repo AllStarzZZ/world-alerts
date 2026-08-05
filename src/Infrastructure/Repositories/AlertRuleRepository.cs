@@ -61,4 +61,21 @@ public class AlertRuleRepository(WorldAlertsDbContext dbContext) : IAlertRuleRep
 
         return await query.ToListAsync();
     }
+
+    /// <summary>
+    /// Creates a new alert rule in the database.
+    /// </summary>
+    /// <param name="alertRule">The alert rule to create.</param>
+    /// <returns>The created alert rule with the assigned database ID.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when alertRule is null.</exception>
+    public async Task<AlertRule> CreateAsync(AlertRule alertRule)
+    {
+        ArgumentNullException.ThrowIfNull(alertRule);
+        ArgumentNullException.ThrowIfNull(dbContext);
+
+        dbContext.AlertRules.Add(alertRule);
+        await dbContext.SaveChangesAsync();
+
+        return alertRule;
+    }
 }

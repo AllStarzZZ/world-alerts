@@ -14,6 +14,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddScoped<IWorldEventService, WorldEventService>();
+        services.AddScoped<IAlertRuleService, AlertRuleService>();
         services.AddScoped<INotificationEvaluatorService, NotificationEvaluatorService>();
 
         return services;
